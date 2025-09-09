@@ -4,8 +4,14 @@ import 'package:myapp/colors_app.dart';
 
 class TitolApp extends StatelessWidget {
   final bool midaGran;
+  final String text1, text2;
 
-  const TitolApp({super.key, this.midaGran = false});
+  const TitolApp({
+    super.key, 
+    required this.text1, 
+    required this.text2, 
+    this.midaGran = false
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +21,7 @@ class TitolApp extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(3),
           child: Text(
-            "S", 
+            text1, 
             style: GoogleFonts.lancelot(
               fontSize: midaGran ? 80 : 25,
               fontStyle: FontStyle.italic,
@@ -34,7 +40,7 @@ class TitolApp extends StatelessWidget {
         ),
 
         Text(
-          "avorSphere", 
+          text2, 
           style: TextStyle(
             fontSize: midaGran ? 40 : 20,
             fontWeight: FontWeight.bold,

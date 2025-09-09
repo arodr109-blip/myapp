@@ -1,4 +1,3 @@
-import 'dart:ffi';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -33,7 +32,7 @@ class PaginaRegistre extends StatelessWidget {
                 SizedBox(height: 120,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [TitolApp(midaGran: true,)],
+                  children: [TitolApp(text1: "S", text2: "avorSphere", midaGran: true,)],
                 ),
               ],
             ),
