@@ -30,9 +30,9 @@ class TitolApp extends StatelessWidget {
 
               shadows: [
                 Shadow(
-                  offset: Offset(2.0, 2.0), // Horizontal and vertical offset
-                  blurRadius: 3.0,         // Blur effect intensity
-                  color: Color.fromARGB(255, 0, 0, 0), // Shadow color
+                  offset: Offset(2.0, 2.0),
+                  blurRadius: 3.0,
+                  color: Color.fromARGB(255, 175, 10, 252),
                 ),
               ],
               ),
@@ -48,9 +48,9 @@ class TitolApp extends StatelessWidget {
 
             shadows: [
               Shadow(
-                offset: Offset(2.0, 2.0), // Horizontal and vertical offset
-                blurRadius: 3.0,         // Blur effect intensity
-                color: Color.from(alpha: 0.415, red: 0.843, green: 0.329, blue: 1), // Shadow color
+                offset: Offset(2.0, 2.0),
+                blurRadius: 3.0,
+                color: ColorsApp.colorOmbrejat,
               ),
             ],
             ),

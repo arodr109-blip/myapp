@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:myapp/components/text_field_auth.dart';
 import 'package:myapp/components/titol_app.dart';
 
 class PaginaRegistre extends StatelessWidget {
@@ -20,7 +21,7 @@ class PaginaRegistre extends StatelessWidget {
           // =====================================================
           BackdropFilter(filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
             child: Container(
-              color: const Color.fromARGB(60, 232, 123, 79),
+              color: const Color.fromARGB(90, 232, 122, 79),
             ),
           ),
 
@@ -32,8 +33,21 @@ class PaginaRegistre extends StatelessWidget {
                 SizedBox(height: 120,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [TitolApp(text1: "S", text2: "avorSphere", midaGran: true,)],
+                  children: [
+                    TitolApp(text1: "S", text2: "avorSphere", midaGran: true,),
+                  ],
                 ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TitolApp(text1: "Ready your ", text2: " Savors"),
+                  ],
+                ),
+
+                TextFieldAuth(etiquetaCamp: "Nom d'usuari",),
+                TextFieldAuth(etiquetaCamp: "Email",),
+                TextFieldAuth(etiquetaCamp: "Password", esPassword: true,),
               ],
             ),
           ),
