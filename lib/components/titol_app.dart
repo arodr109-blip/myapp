@@ -23,7 +23,7 @@ class TitolApp extends StatelessWidget {
           child: Text(
             text1, 
             style: GoogleFonts.lancelot(
-              fontSize: midaGran ? 80 : 25,
+              fontSize: midaGran ? 80 : 30,
               fontStyle: FontStyle.italic,
               fontWeight: FontWeight.bold,
               color: ColorsApp.colorPrimariAccent,
@@ -42,7 +42,7 @@ class TitolApp extends StatelessWidget {
         Text(
           text2, 
           style: TextStyle(
-            fontSize: midaGran ? 40 : 20,
+            fontSize: midaGran ? 40 : 25,
             fontWeight: FontWeight.bold,
             color: ColorsApp.colorPrimari,
 

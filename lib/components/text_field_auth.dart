@@ -39,25 +39,40 @@ class _TextFieldAuthState extends State<TextFieldAuth> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+      padding: const EdgeInsets.symmetric(vertical: 20),
       child: TextField(
         style: TextStyle(color: ColorsApp.colorPrimariAccent2),
         focusNode: _focusNode,
-        obscureText: widget.esPassword,
+        obscureText: !_ocultarTextPassword,
+        obscuringCharacter: "*",
         cursorColor: ColorsApp.colorPrimariAccent2,
         decoration: InputDecoration(
           fillColor: ColorsApp.colorSecundariTransperencia,
           filled: true,
           labelText: widget.etiquetaCamp,
 
-          prefixIcon: widget.iconaPrefix != null ? Icon(widget.iconaPrefix!.icon, color: ColorsApp.colorSecundariAccent,) : null,
+          prefixIcon: 
+          widget.iconaPrefix != null ? 
+          Icon(
+              widget.iconaPrefix!.icon, 
+              color: _isFocused ?
+              ColorsApp.colorPrimariAccent2 : 
+              ColorsApp.colorSecundariAccent,
+             )
+          : null,
+
           suffixIcon: widget.esPassword ? 
             IconButton(
-              onPressed: () {}, 
-              icon: Icon(Icons.visibility, color: ColorsApp.colorSecundariAccent,),
-            ) : 
-            widget.iconaSufix != null ? Icon(widget.iconaSufix!.icon, color: ColorsApp.colorSecundariAccent,) : null,
-            //Icon(widget.iconaSufix!.icon) : null,
+              onPressed: () {
+                setState(() {
+                  _ocultarTextPassword = !_ocultarTextPassword;
+                });
+              }, 
+              icon: Icon(
+                _ocultarTextPassword ? Icons.visibility_off : Icons.visibility,
+                color: _isFocused ? ColorsApp.colorPrimariAccent2 : ColorsApp.colorSecundariAccent,
+              ),
+            ) : null,
 
           labelStyle: TextStyle(
             color: _isFocused
@@ -78,20 +93,6 @@ class _TextFieldAuthState extends State<TextFieldAuth> {
             ),
             borderRadius: BorderRadius.only(topRight: Radius.circular(30)),
           ),
-          /*enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: ColorsApp.colorSecundariAccent, 
-            width: 2,
-          ),
-          borderRadius: BorderRadius.circular(40)
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: ColorsApp.colorPrimariAccent2, 
-            width: 2,
-          ),
-          borderRadius: BorderRadius.circular(40)
-        ),*/
         ),
       ),
     );
