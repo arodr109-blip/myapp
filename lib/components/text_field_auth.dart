@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:myapp/colors_app.dart';
 
 class TextFieldAuth extends StatefulWidget {
-
   final Icon? iconaPrefix, iconaSufix;
   final String etiquetaCamp;
   final bool esPassword;
 
   const TextFieldAuth({
-    super.key, 
-    this.iconaPrefix, 
+    super.key,
+    this.iconaPrefix,
     this.iconaSufix,
     required this.etiquetaCamp,
     this.esPassword = false,
@@ -22,7 +21,7 @@ class TextFieldAuth extends StatefulWidget {
 class _TextFieldAuthState extends State<TextFieldAuth> {
   final FocusNode _focusNode = FocusNode();
   bool _isFocused = false;
-  bool _ocultarTextPassword = false;
+  bool _ocultarTextPassword = true; // Els passwords comencen estan ocultats.
 
   @override
   void initState() {
@@ -43,37 +42,39 @@ class _TextFieldAuthState extends State<TextFieldAuth> {
       child: TextField(
         style: TextStyle(color: ColorsApp.colorPrimariAccent2),
         focusNode: _focusNode,
-        obscureText: !_ocultarTextPassword,
+        obscureText:
+            widget.esPassword ? _ocultarTextPassword : !_ocultarTextPassword,
         obscuringCharacter: "*",
         cursorColor: ColorsApp.colorPrimariAccent2,
         decoration: InputDecoration(
           fillColor: ColorsApp.colorSecundariTransperencia,
           filled: true,
           labelText: widget.etiquetaCamp,
-
-          prefixIcon: 
-          widget.iconaPrefix != null ? 
-          Icon(
-              widget.iconaPrefix!.icon, 
-              color: _isFocused ?
-              ColorsApp.colorPrimariAccent2 : 
-              ColorsApp.colorSecundariAccent,
-             )
-          : null,
-
-          suffixIcon: widget.esPassword ? 
-            IconButton(
-              onPressed: () {
-                setState(() {
-                  _ocultarTextPassword = !_ocultarTextPassword;
-                });
-              }, 
-              icon: Icon(
-                _ocultarTextPassword ? Icons.visibility_off : Icons.visibility,
-                color: _isFocused ? ColorsApp.colorPrimariAccent2 : ColorsApp.colorSecundariAccent,
-              ),
-            ) : null,
-
+          prefixIcon: widget.iconaPrefix != null
+              ? Icon(
+                  widget.iconaPrefix!.icon,
+                  color: _isFocused
+                      ? ColorsApp.colorPrimariAccent2
+                      : ColorsApp.colorSecundariAccent,
+                )
+              : null,
+          suffixIcon: widget.esPassword
+              ? IconButton(
+                  onPressed: () {
+                    setState(() {
+                      _ocultarTextPassword = !_ocultarTextPassword;
+                    });
+                  },
+                  icon: Icon(
+                    _ocultarTextPassword
+                        ? Icons.visibility_off
+                        : Icons.visibility,
+                    color: _isFocused
+                        ? ColorsApp.colorPrimariAccent2
+                        : ColorsApp.colorSecundariAccent,
+                  ),
+                )
+              : null,
           labelStyle: TextStyle(
             color: _isFocused
                 ? ColorsApp.colorPrimariAccent2
