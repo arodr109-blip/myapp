@@ -1,10 +1,12 @@
 import 'dart:ui';
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/colors_app.dart';
 import 'package:myapp/components/boto_auth.dart';
 import 'package:myapp/components/text_field_auth.dart';
 import 'package:myapp/components/titol_app.dart';
+import 'package:myapp/pagines/pagina_principal.dart';
 
 class PaginaRegistre extends StatelessWidget {
   const PaginaRegistre({super.key});
@@ -100,6 +102,21 @@ class PaginaRegistre extends StatelessWidget {
                               ),
                               TextSpan(
                                 text: "termes ",
+                                recognizer: TapGestureRecognizer()..onTap = () async {
+                                  // ..: Operador cascada: Per fer servir l'objecte TapGestureRecognizer
+                                  // sense haver-lo de passar primer a una variable. El que es fa amb 
+                                  // aquest objecte, és assignar-li una valor al seu atribut "onTap".
+
+                                  /*final url = Uri.parse('https://yourapp.com/terms');
+                                  if (await canLaunchUrl(url)) {
+                                    await launchUrl(url);
+                                  }*/
+                                  //print("Clic a 'termes'");
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => PaginaPrincipal()),
+                                  );
+                                },
                                 style: TextStyle(
                                   color: ColorsApp.colorPrimariAccent,
                                   fontWeight: FontWeight.bold,
@@ -113,6 +130,12 @@ class PaginaRegistre extends StatelessWidget {
                               ),
                               TextSpan(
                                 text: "política ",
+                                recognizer: TapGestureRecognizer()..onTap = () async {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => PaginaPrincipal()),
+                                  );
+                                },
                                 style: TextStyle(
                                   color: ColorsApp.colorPrimariAccent,
                                   fontWeight: FontWeight.bold,
@@ -130,7 +153,16 @@ class PaginaRegistre extends StatelessWidget {
                       ),
                     ],
                   ),
-                  BotoAuth(),
+                  BotoAuth(
+                    textBoto: "Registra't", 
+                    iconaBoto: Icon(Icons.celebration, color: ColorsApp.colorSecundariAccent),
+                    accioBoto: () {
+                      Navigator.push(
+                        context, 
+                        MaterialPageRoute(builder: (context) => PaginaPrincipal()),
+                      );
+                    },
+                  ),
 
                   SizedBox(height: 1),
 
@@ -142,13 +174,27 @@ class PaginaRegistre extends StatelessWidget {
                         style: TextStyle(color: ColorsApp.colorSecundari),
                         maxLines: null,
                       ),
-                      Text(
-                        "aquí",
-                        style: TextStyle(
-                          color: ColorsApp.colorPrimariAccent,
-                          fontWeight: FontWeight.bold,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => PaginaPrincipal()),
+                          );
+                        },
+                        child: MouseRegion(
+                          cursor: SystemMouseCursors.click,
+                          child: GestureDetector(
+                            onTap: (){},
+                            child: Text(
+                              "aquí",
+                              style: TextStyle(
+                                color: ColorsApp.colorPrimariAccent,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              maxLines: null,
+                            ),
+                          ),
                         ),
-                        maxLines: null,
                       ),
                     ],
                   ),
