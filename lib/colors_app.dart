@@ -7,6 +7,7 @@ class ColorsApp {
   static const Color colorPrimariAccent2 = Color.fromARGB(255, 253, 169, 197);
   
   static const Color colorSecundari = Color.fromRGBO(189, 114, 2, 1);
+  static const Color colorSecundariSuau = Color.fromRGBO(203, 153, 79, 1);
   static const Color colorSecundariTransperencia = Color.fromRGBO(189, 114, 2, 0.75);
   static const Color colorSecundariAccent = Color.fromARGB(255, 255, 228, 188);
 

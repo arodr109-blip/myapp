@@ -51,7 +51,7 @@ class _PaginaPrincipalState extends State<PaginaPrincipal> with SingleTickerProv
         // ===============================================
         title: TitolApp(text1: "Savor", text2: "Sphere", midaGran: false,),
         //centerTitle: false,
-        backgroundColor: ColorsApp.colorSecundariTransperencia,
+        backgroundColor: ColorsApp.colorSecundariSuau,
 
         // Botons d'accions de la AppBar (només en posem un, el botó de cerca).
         // ====================================================================

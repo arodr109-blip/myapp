@@ -19,28 +19,22 @@ class ItemPlat extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Container(
-        padding: EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: ColorsApp.colorPrimariAccent2,
-        ),
-        child: Column(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadiusGeometry.circular(10),
-              child: Image.network(imatgePlat),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadiusGeometry.circular(10),
+            child: Image.network(imatgePlat),
+          ),
+          Text(descripcioPlat),
+          Text(
+            preuPlat,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: ColorsApp.colorPrimariAccent,
             ),
-            Text(descripcioPlat),
-            Text(
-              preuPlat,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: ColorsApp.colorPrimariAccent,
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
