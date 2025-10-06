@@ -20,6 +20,11 @@ class ItemPlat extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
+        padding: EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: ColorsApp.colorPrimariAccent2,
+        ),
         child: Column(
           children: [
             ClipRRect(

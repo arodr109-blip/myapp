@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/colors_app.dart';
+import 'package:myapp/components/item_plat.dart';
 import 'package:myapp/components/search_delegate_cerca_principal.dart';
 import 'package:myapp/components/titol_app.dart';
 import 'package:myapp/data/dades_locals.dart';
@@ -106,24 +107,50 @@ class _PaginaPrincipalState extends State<PaginaPrincipal> with SingleTickerProv
         ),
       ),
 
+
       // Contingut de la pantalla principal.
       // ===================================
       // (el contingut és la pestanya que estigui seleccionada).
 
       // En el body del Scaffold, li passem un TabBarView (i definim les 
       //    pàgines a les que permeti navegar).
-      body: TabBarView(
-        controller: controllerPestanya,
-        children: [// Posar-hi les pàgines que volguem.
-          _pestanyaGeneral(),
-          Center(child: Text("Pestanya 2"),),
-          Center(child: Text("Pestanya 3"),),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(5),
+        child: TabBarView(
+          controller: controllerPestanya,
+          children: [// Posar-hi les pàgines que volguem.
+            _pestanyaGeneral(),
+            Center(child: Text("Pestanya 2"),),
+            Center(child: Text("Pestanya 3"),),
+          ],
+        ),
       ),
+
+      backgroundColor: ColorsApp.colorSecundariAccent,
     );
   }
 }
 
 Widget _pestanyaGeneral() {
-  return Container(child: Text("Hola"),);
+
+  return GridView.builder(
+
+    // Paràmetres de configuració del la GridView.
+    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      crossAxisCount: 2, // Ítems per fila.
+      crossAxisSpacing: 5, // Espai horitzontal entre ítems.
+      mainAxisSpacing: 5, // Espai vertical entre ítems.
+      childAspectRatio: 0.9 // 1 seria quadrat, < 1 més alt que ampla, > 1 més ampla que alt.
+    ), 
+    itemCount: DadesLocals.llistaPlats.length,
+
+    // Creació dels ítems de la GridView.
+    itemBuilder: (context, index) {
+
+      return ItemPlat(
+        imatgePlat: DadesLocals.llistaPlats[index]["url_imatge"], 
+        descripcioPlat: DadesLocals.llistaPlats[index]["descripcio"], 
+        preuPlat: DadesLocals.llistaPlats[index]["preu"]
+      );
+    });
 }
