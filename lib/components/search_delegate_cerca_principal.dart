@@ -19,6 +19,9 @@ Escriure la capçalera amb el extends, i amb la bombeta, proposa implementar
     El extends és de l'objecte SearchDelegate.
 */
 class SearchDelegateCercaPrincipal extends SearchDelegate<Map<String, String>> {
+
+  // Botó del darrera de la search bar.
+  // ==================================
   @override
   List<Widget>? buildActions(BuildContext context) {
     return [
@@ -32,6 +35,8 @@ class SearchDelegateCercaPrincipal extends SearchDelegate<Map<String, String>> {
     ];
   }
 
+  // Botó del davant de la search bar.
+  // =================================
   @override
   Widget? buildLeading(BuildContext context) {
     return IconButton(
@@ -41,6 +46,10 @@ class SearchDelegateCercaPrincipal extends SearchDelegate<Map<String, String>> {
       icon: const Icon(Icons.arrow_back, color: ColorsApp.colorPrimariAccent,),
     );
   }
+
+  // Resultats de la cerca (una vegada fan enter o clic a una de les propostes 
+  //    trobades per la search bar).
+  // =========================================================================
 
   @override
   Widget buildResults(BuildContext context) {
@@ -89,6 +98,8 @@ class SearchDelegateCercaPrincipal extends SearchDelegate<Map<String, String>> {
     );
   }
 
+  // Propostes que la search bar va mostrant a l'usuari mentres escriu.
+  // ==================================================================
   @override
   Widget buildSuggestions(BuildContext context) {
 

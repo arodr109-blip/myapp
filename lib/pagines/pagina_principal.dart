@@ -4,6 +4,7 @@ import 'package:myapp/components/item_plat.dart';
 import 'package:myapp/components/search_delegate_cerca_principal.dart';
 import 'package:myapp/components/titol_app.dart';
 import 'package:myapp/data/dades_locals.dart';
+import 'package:myapp/pagines/pagina_perfil_usuari.dart';
 
 class PaginaPrincipal extends StatefulWidget {
   const PaginaPrincipal({super.key});
@@ -47,11 +48,24 @@ class _PaginaPrincipalState extends State<PaginaPrincipal> with SingleTickerProv
     return Scaffold(
       appBar: AppBar(
 
-        // Títol i característiques generals de la AppBar.
-        // ===============================================
+        // AppBar.
+        // =======
         title: TitolApp(text1: "Savor", text2: "Sphere", midaGran: false,),
-        //centerTitle: false,
+        centerTitle: true,
         backgroundColor: ColorsApp.colorSecundariSuau,
+
+        leading: IconButton(
+          onPressed: () {
+            Navigator.push(
+              context, 
+              MaterialPageRoute(builder: (context) => PaginaPerfilUsuari()),
+            );
+          },
+          icon: ClipRRect(
+            borderRadius: BorderRadiusGeometry.circular(50),
+            child: Image.network("https://picsum.photos/200"),
+          ),
+        ),
 
         // Botons d'accions de la AppBar (només en posem un, el botó de cerca).
         // ====================================================================
@@ -59,7 +73,7 @@ class _PaginaPrincipalState extends State<PaginaPrincipal> with SingleTickerProv
 
           // Botó de cerca.
           IconButton(
-            icon: Icon(Icons.search), 
+            icon: Icon(Icons.search, color: ColorsApp.colorSecundariAccent,), 
             onPressed: () async {
 
               // Creem un objecte de tipus Future<T> amb el mètode showSearch.

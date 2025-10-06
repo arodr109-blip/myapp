@@ -16,6 +16,7 @@ class TitolApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
 
         Padding(
@@ -55,6 +56,7 @@ class TitolApp extends StatelessWidget {
             ],
             ),
           ),
+          SizedBox(width: 25,),
       ],
     );
   }
