@@ -1,5 +1,6 @@
 class DadesLocals {
 
+  // Imatges d'exemple de la web "https://picsum.photos/" (lorem picsum)
   static List llistaPlats = [
     {
       "url_imatge": "https://picsum.photos/200",
